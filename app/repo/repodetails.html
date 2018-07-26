@@ -1,0 +1,24 @@
+<div>
+  <h2>{{repo.name}}</h2> {{error}}
+  
+  <select ng-model="contributorsSortOrder">
+    <option value="+login">Login</option>
+    <option value="-contributions">Contributions</option>
+  </select>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Contributions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="contrib in contributors | orderBy: contributorsSortOrder">
+      <td>{{contrib.login}}</td>
+      <td>{{contrib.contributions | number}}</td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+<a href="/main.html">Back to search</a>
